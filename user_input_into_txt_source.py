@@ -11,19 +11,29 @@
 # if no then save input into 4 list as dict and add the each index in the list into a list
 # put the 4 list into a txt file
 
-user_age = []
+user_data = []
+
+names = []
+ages = []
+heights = []
 
 while True:
-    while True:
-        try:
-            name = input('input ur name\n')
-            age = int(input('input age\n'))
-            
-            break
-        except:
-            print('error lol')
-
-    retry = input('Input another one? Y/N\n')
+    try:
+        names.append(input('input yo name\n'))
+        ages.append(int(input('input age\n')))
+        heights.append(int(input('input height in cm\n')))
+        
+    except:
+        print('error lol')
+        
     
+    retry = input('Input another one? Y/N\n')
+
     if retry not in ('Y', 'y', 'yes', 'Yes', 'si'):
         break
+    
+user_data = tuple(zip(names, ages, heights))
+
+datafile_users = open("./out.txt", "w")
+
+datafile_users.write
