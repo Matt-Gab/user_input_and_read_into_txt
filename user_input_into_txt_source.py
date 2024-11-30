@@ -17,18 +17,25 @@ heights = []
 countrys = []
 crushes = []
 
-
 while True:
-    try:
-        names.append(input('input yo name\n'))
-        ages.append(int(input('input age\n')))
-        heights.append(int(input('input height in cm\n')))
-        countrys.append(input('input your country\n'))
-        crushes.append(input('input your crush\n'))
+    while True:
+        try:
+            name_temp = input('Input your username\n')
+            age_temp = input('Input your age\n')
+            height_temp = input('Input your height in cm\n')
+            country_temp = input('Input your country\n')
+            crush_temp = input('Input your crush\n')
+            break
+            
+        except:
+            print('Error. Input again.')
+            
+    names.append(name_temp)
+    ages.append(age_temp)
+    heights.append(height_temp)
+    countrys.append(country_temp)
+    crushes.append(crush_temp)
         
-    except:
-        print('error lol')
-    
     retry = input('Input another one? Y/N\n')
 
     if retry not in ('Y', 'y', 'yes', 'Yes', 'si'):
@@ -36,7 +43,7 @@ while True:
 
 user_database = list(zip(names, ages, heights, countrys, crushes))
 
-print(user_database)
+print('Your Input has been saved to users.txt')
 
 with open("./users.txt", "w") as user_iterate:
     for inside_list in user_database:
