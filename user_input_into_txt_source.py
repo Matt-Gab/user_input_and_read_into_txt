@@ -28,17 +28,16 @@ while True:
         
     except:
         print('error lol')
-        
-    user_database = list(zip(names, ages, heights, countrys, crushes))
     
     retry = input('Input another one? Y/N\n')
 
     if retry not in ('Y', 'y', 'yes', 'Yes', 'si'):
         break
 
+user_database = list(zip(names, ages, heights, countrys, crushes))
+
 print(user_database)
 
-with open("./users.txt", "a") as user_iterate:
-    user_iterate.write('This data is separated into\n(name, age, height, country, crush)\n')
+with open("./users.txt", "w") as user_iterate:
     for inside_list in user_database:
         user_iterate.write('{}\n'.format(inside_list))
